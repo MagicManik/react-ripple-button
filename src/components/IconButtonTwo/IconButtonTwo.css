@@ -1,0 +1,55 @@
+.icon-btn {
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: none;
+    padding: 20px;
+    font-size: 40px;
+    color: #fff;
+    background: #0990ff;
+}
+
+.icon-effect-container {
+    position: relative;
+    overflow: hidden;
+
+    --effect-name: ripple;
+    --effect-duration: 2000ms;
+    --effect-top: 0px;
+    --effect-left: 0px;
+    --effect-height: 100px;
+    --effect-width: 100px;
+    --effect-color: white;
+}
+
+.icon-effect-container::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    top: var(--effect-top);
+    left: var(--effect-left);
+    height: var(--effect-height);
+    width: var(--effect-width);
+    border-radius: 50%;
+    transform: scale(0);
+    background: var(--effect-color);
+}
+
+.icon-effect-container.active::before {
+    border-radius: 50%;
+    animation: rippleIconTwo var(--effect-duration) linear forwards;
+}
+
+@keyframes rippleIconTwo {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(5);
+        opacity: 0;
+    }
+}
